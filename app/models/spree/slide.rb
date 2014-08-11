@@ -6,6 +6,8 @@ module Spree
                 :showcase=> ["#{SpreeShowcase::Config.showcase_style}"]},
       :url => '/spree/showcase/:id/:style/:basename.:extension',
       :path => ':rails_root/public/spree/showcase/:id/:style/:basename.:extension'
+    
+    validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
     # Add S3 and Heroku support
     s3_options = if ENV['S3_KEY'] && ENV['S3_SECRET'] && ENV['S3_BUCKET']
