@@ -30,6 +30,6 @@ module Spree
 
     default_scope {order(:position)} # Slides should always be ordered by position specified by user.
     scope :published, -> {where(:published=>true)}
-    scope :no_slides, -> {|num| limit(num)}
+    scope :no_slides, ->(num) {limit(num)}
   end
 end
