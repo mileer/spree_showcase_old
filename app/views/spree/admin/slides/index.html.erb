@@ -19,14 +19,15 @@
   <thead>
     <tr data-hook="admin_slides_index_headers">
       <th><%= t(:name) %></th>
-      <th data-hook="admin_slides_index_header_actions"></th>
+      <th data-hook="admin_slides_index_header_actions"><%= t(:image) %></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
     <% @slides.each do |slide|%>
       <tr id="<%= spree_dom_id slide %>" data-hook="admin_slides_index_rows">
-        <td width="100px" ><span class="handle" style="margin-right:5px"> </span> <%=link_to slide.name, object_url(slide) %></td>
-        <td width="350px" ><span class="handle" style="margin-right:5px"> </span> <%=image_tag(slide.image.url(:thumbnail)) %></td>
+        <td width="190px" ><span class="handle" style="margin-right:5px"> </span> <%=link_to slide.name, object_url(slide) %></td>
+        <td width="300px" ><%= image_tag(slide.image.url(:thumb)) %></td>
         <td data-hook="admin_slides_index_row_actions">
           <%= link_to_edit slide, :class => 'edit' %> &nbsp;
           <%= link_to_delete slide %>

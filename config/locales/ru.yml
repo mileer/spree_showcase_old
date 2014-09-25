@@ -11,6 +11,7 @@ ru:
   body: "Содержимое"
   target_url: "Url изображения для ссылки на него"
   image: "Изображение"
+  name: "Название"
   thumbnail_message: "Thumbnail Message"
   published: "опубликовано"
   new_showcase_slide: "New Showcase Slide"
