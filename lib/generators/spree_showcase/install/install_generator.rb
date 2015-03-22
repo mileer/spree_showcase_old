@@ -13,45 +13,12 @@ module SpreeShowcase
       end
 
       def add_overrides
-        @source = "overrides/showcase/add_showcase_to_home_layout.rb"
-        @dest = "app/overrides/showcase/add_showcase_to_home_layout.rb"
-        if copy_file(@source, @dest)
-          messages << copy_message
-        else
-          messages << copy_message
-        end
       end
 
       def add_javascripts
-        append_file 'app/assets/javascripts/store/all.js', "//= require jquery.flexslider\n"
-        @source  = "vendor/javascripts/jquery.flexslider.js"
-        @dest    = "vendor/assets/javascripts/store/jquery.flexslider.js"
-        if copy_file(@source, @dest)
-          messages << copy_message
-        else
-          messages << copy_message
-        end
       end
 
       def add_stylesheets
-        inject_into_file 'app/assets/stylesheets/store/all.css', " *= require store/spree_showcase\n", :before => /\*\//, :verbose => true
-
-        @source = "stylesheets/store/showcase.css.scss"
-        @dest = "app/assets/stylesheets/store/showcase.css.scss"
-        if copy_file(@source, @dest)
-          messages << self.copy_message
-        else
-          messages << self.copy_message
-        end
-
-        @source = "vendor/stylesheets/jquery.flexslider.css"
-        @dest = "vendor/assets/stylesheets/store/jquery.flexslider.css"
-        if copy_file(@source, @dest)
-          messages << copy_message
-        else
-          messages << copy_message
-        end
-        puts "showcase.css styles are required by the extension and can be changed in anyway to fit your own _showcase.html.erb\n"
       end
 
       def add_partials
