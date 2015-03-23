@@ -1,13 +1,15 @@
 module Spree
   class Slide < ActiveRecord::Base
 
+    validates_presence_of :image, :name
+
     has_attached_file :image,
       :styles=>{:thumb=> ["#{SpreeShowcase::Config.thumbnail_style}"],
                 :showcase=> ["#{SpreeShowcase::Config.showcase_style}"]},
-      :url => '/spree/showcase/:id/:style/:basename.:extension',
-      :path => ':rails_root/public/spree/showcase/:id/:style/:basename.:extension'
+      :url => '/spree/slides/:id/:style/:basename.:extension',
+      :path => ':rails_root/public/spree/slides/:id/:style/:basename.:extension'
     
-    validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
+    validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 
     # Add S3 and Heroku support
     s3_options = if ENV['S3_KEY'] && ENV['S3_SECRET'] && ENV['S3_BUCKET']
