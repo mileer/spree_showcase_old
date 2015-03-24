@@ -1,4 +1,16 @@
 ru:
+  activerecord:
+    attributes:
+      spree/slide:
+
+    models:
+      spree/slide:
+        few: Слайда
+        many: Слайдов
+        one: Слайд
+        other: Слайды
+  spree:
+    
   new_slide: "Новый слайд"
   showcase: "Слайдер"
   slides: "Слайды"
